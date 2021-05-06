@@ -27,8 +27,8 @@ export class LockedPage implements OnInit {
   async openBiometricAuth() {
     const authResult = await BiometricAuth.verify(
       {
-        reason: 'Your session timed out',
-        title: 'Your session timed out',
+        reason: 'La tua sessione è scaduta',
+        title: 'La tua sessione è scaduta',
       }
     );
     if (authResult.verified) {

@@ -20,7 +20,7 @@ export class AccessService {
     }
 
   resetLogoutTimer() {
-    this.loogoutTimer.next(5);
+    this.loogoutTimer.next(1800);
     this.decreaseTimer();
   }
 
