@@ -33,13 +33,13 @@ export class LoginPage implements OnInit {
       }
     );
     if (authResult.verified) {
-      this.router.navigateByUrl('/inside');
+      this.router.navigateByUrl('/home');
     }
   }
 
   unlock() {
     if (this.password === '1234') {
-      this.router.navigateByUrl('/inside');
+      this.router.navigateByUrl('/home');
     }
   }
 

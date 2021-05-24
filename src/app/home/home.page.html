@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fallback" style="padding-top: 2em;">
+    <ion-button (click)="goToMeteo()" expand="full">
+       METEO
+      <ion-icon style="padding-right: 10px;" name="cloudy-night" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button (click)="goToGarage()" expand="full">
+      GARAGE
+     <ion-icon style="padding-right: 10px;" name="construct" slot="icon-only"></ion-icon>
+   </ion-button>
+  </div>
+</ion-content>
+

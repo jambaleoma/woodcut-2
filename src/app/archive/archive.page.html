@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Archivio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="woodBackGround">
+
+  <app-btn-card *ngIf="toolCard" cardTitle="Attrezzi" cardImage="addTools" (click)="showArchive('tool')" ></app-btn-card>
+
+  <app-btn-card *ngIf="utensilCard" cardTitle="Utensili" cardImage="addUtensil" (click)="showArchive('utensil')"></app-btn-card>
+
+  <div *ngIf="toolArchive">
+
+      <ion-grid>
+
+          <ion-row>
+            <ion-col>
+              <div class="tableHeder">
+                <b>Nome</b>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="tableHeder">
+                <b>Costo</b>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="tableHeder">
+                <b>Tipologia</b>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="tableHeder">
+                <b>Elimina</b>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <div>
+
+            <ion-row *ngFor="let tool of tools">
+              <ion-col (click)="openToolDetails(tool)">
+                <div class="tableCellCenter">
+                  {{tool && tool.shortName ? tool.shortName : ''}}
+                </div>
+              </ion-col>
+              <ion-col (click)="openToolDetails(tool)">
+                <div class="tableCellCenter">
+                  {{tool && tool.price ? tool.price : '0'}} €
+                </div>
+              </ion-col>
+              <ion-col (click)="openToolDetails(tool)">
+                <div class="tableCellCenter">
+                   <img *ngIf="tool && tool.type && tool.type === 'elettric'"
+                   src="./../../assets/icon/{{tool.type}}Tool.png" style="max-width: 20px"/>
+                   <img *ngIf="tool && tool.type && tool.type === 'manual'"
+                   src="./../../assets/icon/{{tool.type}}Tool.png" style="max-width: 30px"/>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="tableCellCenter">
+                  <ion-icon (click)="eliminaAttrezzo(tool)" name="trash" style="color: red;"></ion-icon>
+                </div>
+              </ion-col>
+            </ion-row>
+
+          </div>
+
+        </ion-grid>
+
+  </div>
+
+  <div *ngIf="utensilArchive">
+
+
+  <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="tableHeder">
+            <b>Nome</b>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="tableHeder">
+            <b>Numero Pezzi</b>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="tableHeder">
+            <b>Data Inzio</b>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="tableHeder">
+            <b>Data Fine</b>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="tableHeder">
+            <b>Elimina</b>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let utensil of utensils">
+        <ion-col (click)="openUtensilDetails(utensil)">
+          <div class="tableCellCenter">
+            {{utensil && utensil.name ? utensil.name : ''}}
+          </div>
+        </ion-col>
+        <ion-col (click)="openUtensilDetails(utensil)">
+          <div class="tableCellCenter">
+            {{utensil && utensil.piecesNumber ? utensil.piecesNumber : ''}}
+          </div>
+        </ion-col>
+        <ion-col (click)="openUtensilDetails(utensil)">
+          <div class="tableCellCenter smallDate">
+            {{utensil && utensil.startingDate ? utensil.startingDate.slice(0,10) : ''}}
+          </div>
+        </ion-col>
+        <ion-col (click)="openUtensilDetails(utensil)">
+          <div class="tableCellCenter smallDate">
+            {{utensil && utensil.endingDate ? utensil.endingDate.slice(0,10) : ''}}
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="tableCellCenter">
+            <ion-icon (click)="eliminaUtensile(utensil)" name="trash" style="color: red;"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+</ion-content>
+
+
+<ion-button *ngIf="toolArchive || utensilArchive" expand="full" (click)="showArchive('back')">Indietro</ion-button>
+
+<ion-footer *ngIf="!toolArchive && !utensilArchive">
+  <ion-button style="width: 100%;" (click)="backToGarage()">Indietro</ion-button>
+</ion-footer>
