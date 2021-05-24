@@ -1,3 +1,5 @@
+import { UpdateService } from './services/update.service';
+import { Platform } from '@ionic/angular';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private plt: Platform,
+    private updateService: UpdateService
+  ) {
+    this.plt.ready().then(() => {
+      this.updateService.checkForUpdate();
+      this.updateService.checkForMantainance();
+    })
+  }
 }
