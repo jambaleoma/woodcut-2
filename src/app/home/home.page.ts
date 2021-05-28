@@ -1,3 +1,6 @@
+import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from './../model/user.model';
+import { AccessService } from './../services/access.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,11 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
+  currentUser: User = null;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private accessService: AccessService
   ) { }
 
   ngOnInit() {
+    this.currentUser = this.accessService.getCurrentUser();
   }
 
   goToGarage() {
@@ -21,6 +29,11 @@ export class HomePage implements OnInit {
 
   goToMeteo() {
     this.router.navigateByUrl('/meteo');
+  }
+
+  singOut() {
+    this.accessService.signOut();
+    this.router.navigateByUrl('/login');
   }
 
 }

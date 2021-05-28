@@ -9,6 +9,7 @@ export interface Tool {
     recommendations?: string;
     brand?: Brand;
     productDetail?: ProductDetail;
+    userUID?: string;
 }
 
 export interface Brand {

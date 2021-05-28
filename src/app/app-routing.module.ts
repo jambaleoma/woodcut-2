@@ -1,14 +1,27 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+
+// Send unauthorized user to login
+  const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/']);
+
+// Automatically log in user
+  const redirectLoggedInToHome = () => redirectLoggedInTo(['/home']);
 
 const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    ...canActivate(redirectLoggedInToHome)
+  },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'meteo',
@@ -31,9 +44,8 @@ const routes: Routes = [
     loadChildren: () => import('./item-details/item-details.module').then( m => m.ItemDetailsPageModule)
   },
   {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 

@@ -5,4 +5,5 @@ export interface Utensil {
     endingDate?: string;
     piecesNumber?: number;
     imageB64?: string;
+    userUID?: string;
 }

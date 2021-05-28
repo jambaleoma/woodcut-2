@@ -1,3 +1,4 @@
+import { AccessService } from './../services/access.service';
 import { Router } from '@angular/router';
 import { LoadingService } from './../services/loading.service';
 import { Utensil } from './../model/utensil.model';
@@ -40,7 +41,8 @@ export class NewPage {
     public loadingService: LoadingService,
     private sanitizer: DomSanitizer,
     private afs: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private accessService: AccessService
   ) {
     for (let a of brands.brands) {
       this.brandsList.push(a);
@@ -82,6 +84,7 @@ export class NewPage {
     if (this.b64photo !== '') {
       item.imageB64 = this.b64photo;
     }
+    item.userUID = this.accessService.getCurrentUser().uid;
     this.afs.collection('Tool').add(item);
     this.loadingService.present();
     setTimeout(() => {
@@ -93,6 +96,7 @@ export class NewPage {
 
   addUtensil(f: NgForm) {
     const item: Tool = f.value;
+    item.userUID = this.accessService.getCurrentUser().uid;
     this.afs.collection('Utensil').add(item);
     this.loadingService.present();
     setTimeout(() => {

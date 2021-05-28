@@ -1,3 +1,4 @@
+import { AccessService } from './../services/access.service';
 import { AngularFirestore, AngularFirestoreCollection, DocumentData } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
@@ -29,22 +30,21 @@ export class ArchivePage {
     public loadingService: LoadingService,
     private router: Router,
     private itemService: ItemService,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private accessService: AccessService
   ) {
     this.loadingService.present();
     // Getting Tools data
     this.toolsStore = this.afs.collection('Tool', ref => ref.orderBy('name')).valueChanges({idField: 'id'});
     this.toolsStore.subscribe((tools) => {
       this.loadingService.dismiss();
-      this.tools = tools;
-      console.log(tools);
+      this.tools = tools.filter((tool) => tool.userUID === this.accessService.getCurrentUser()?.uid);
     });
     // Getting Utensil data
     this.utensilsStore = this.afs.collection('Utensil', ref => ref.orderBy('name')).valueChanges({idField: 'id'});
     this.utensilsStore.subscribe((utensils) => {
       this.loadingService.dismiss();
-      this.utensils = utensils;
-      console.log(utensils);
+      this.utensils = utensils.filter((utensil) => utensil.userUID === this.accessService.getCurrentUser()?.uid);
     });
   }
 
