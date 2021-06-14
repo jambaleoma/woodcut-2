@@ -1,5 +1,5 @@
 import { NgForm } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AccessService } from '../services/access.service';
