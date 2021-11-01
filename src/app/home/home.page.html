@@ -5,25 +5,43 @@
 </ion-header>
 
 <ion-content fullscreen class="ion-padding">
-  <div class="fallback" style="padding-top: 2em;">
-
-    <ion-text color="secondary">
-      <h1 style="padding-bottom: 2em;">
-        Benvenuto {{currentUser?.displayName}}
-      </h1>
-    </ion-text>
-
-    <ion-button (click)="goToMeteo()" expand="full">
-       METEO
-      <ion-icon style="padding-right: 10px;" name="cloudy-night" slot="icon-only"></ion-icon>
-    </ion-button>
-
-    <ion-button (click)="goToGarage()" expand="full">
-      GARAGE
-     <ion-icon style="padding-right: 10px;" name="construct" slot="icon-only"></ion-icon>
-   </ion-button>
-
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-text color="secondary">
+        <h1 style="padding-bottom: 1em;">
+          Benvenuto {{currentUser?.displayName}}
+        </h1>
+      </ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <ion-button class="largeButtonSX" (click)="goToMeteo()">
+          METEO
+         <ion-icon style="padding-right: 10px;" name="cloudy-night" slot="icon-only"></ion-icon>
+       </ion-button>
+      </ion-col>
+      <ion-col style="text-align: center;">
+        <ion-button class="largeButton" (click)="goToGarage()">
+          GARAGE
+         <ion-icon style="padding-right: 10px;" name="construct" slot="icon-only"></ion-icon>
+       </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <ion-button class="largeButtonSX" (click)="goToGame()">
+          GIOCHI
+         <ion-icon style="padding-right: 10px;" name="game-controller-outline" slot="icon-only"></ion-icon>
+       </ion-button>
+      </ion-col>
+      <ion-col style="text-align: center;">
+        <ion-button class="largeButton" (click)="goToAlarm()">
+          SVEGLIA
+         <ion-icon style="padding-right: 10px;" name="alarm" slot="icon-only"></ion-icon>
+       </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
 <ion-footer>

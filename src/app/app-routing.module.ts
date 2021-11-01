@@ -50,7 +50,15 @@ const routes: Routes = [
   {
     path: 'home/:id',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
+  },  {
+    path: 'game',
+    loadChildren: () => import('./game/game.module').then( m => m.GamePageModule)
+  },
+  {
+    path: 'alarm',
+    loadChildren: () => import('./alarm/alarm.module').then( m => m.AlarmPageModule)
   }
+
 ];
 
 @NgModule({

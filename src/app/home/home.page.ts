@@ -31,6 +31,14 @@ export class HomePage implements OnInit {
     this.router.navigateByUrl('/meteo');
   }
 
+  goToAlarm() {
+    this.router.navigateByUrl('/alarm');
+  }
+
+  goToGame() {
+    this.router.navigateByUrl('/game');
+  }
+
   singOut() {
     this.accessService.signOut();
     this.router.navigateByUrl('/login');
