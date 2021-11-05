@@ -6,7 +6,6 @@ import { Tool } from 'src/app/model/tool.model';
 import { Utensil } from 'src/app/model/utensil.model';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ItemService } from 'src/app/services/item.service';
-import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
 @Component({

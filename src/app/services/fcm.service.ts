@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Plugins, PushNotification, PushNotificationToken, PushNotificationActionPerformed, Capacitor } from '@capacitor/core';
+/* import { Plugins, PushNotification, PushNotificationToken, PushNotificationActionPerformed, Capacitor } from '@capacitor/core'; */
 import { Router } from '@angular/router';
 
-const { PushNotifications } = Plugins;
+/* const { PushNotifications } = Plugins; */
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class FcmService {
   ) { }
 
   initPush() {
-    if(Capacitor.platform !== 'web') {
+   /*  if(Capacitor.platform !== 'web') {
       this.registerPush();
-    }
+    } */
   }
 
-  private registerPush() {
+  /* private registerPush() {
     PushNotifications.requestPermission().then((permission) => {
       if (permission.granted) {
         PushNotifications.register();
@@ -49,7 +49,7 @@ export class FcmService {
       }
     });
 
-  }
+  } */
 
 
 }
