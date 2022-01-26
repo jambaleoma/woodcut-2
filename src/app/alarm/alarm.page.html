@@ -1,10 +1,25 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-title>alarm</ion-title>
+    <ion-title>Sveglia</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid>
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <ion-button color="danger" shape="round">Seleziona Orario</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <circle-progress [percent]="50" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#eb445a'" [innerStrokeColor]="'#400000'" [animation]="true" [animationDuration]="500"
+        [responsive]="true" [renderOnClick]="false"></circle-progress>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
 
@@ -12,7 +27,7 @@
   <ion-toolbar color="danger">
     <ion-row>
       <ion-col>
-        <ion-button (click)="navigateTo('home')" expand="full">
+        <ion-button shape="round" (click)="navigateTo('home')" expand="block">
           Home
           <ion-icon style="padding-right: 10px;" name="home" slot="icon-only"></ion-icon>
         </ion-button>

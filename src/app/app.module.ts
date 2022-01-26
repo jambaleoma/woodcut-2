@@ -14,6 +14,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppVersion } from '@ionic-native/app-version/ngx';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,11 +23,13 @@ import { AppVersion } from '@ionic-native/app-version/ngx';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    HttpClientModule],
+    HttpClientModule,
+    NgCircleProgressModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AppVersion
   ],
   bootstrap: [AppComponent],
+  exports: [NgCircleProgressModule]
 })
 export class AppModule {}
