@@ -6,12 +6,13 @@ import { Tool, Brand } from './../model/tool.model';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
-import massiveTools from './../../assets/json/tools.json';
-import brands from './../../assets/json/brands.json';
+import massiveTools from './../../assets/JSON/tools.json';
+import brands from './../../assets/JSON/brands.json';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CameraResultType, CameraSource, Plugins } from '@capacitor/core';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const { Camera } = Plugins;
 
 @Component({
@@ -44,7 +45,7 @@ export class NewPage {
     private router: Router,
     private accessService: AccessService
   ) {
-    for (let a of brands.brands) {
+    for (const a of brands.brands) {
       this.brandsList.push(a);
     }
   }

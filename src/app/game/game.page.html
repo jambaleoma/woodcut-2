@@ -5,77 +5,18 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid style="padding-top: 3em;">
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col style="text-align: center;">
-        <button class="btn" id="Sasso" [ngStyle]="{'border': '5px solid ' + changeColorUser('Sasso')}" [style.border]="{'border': '5px solid ' + changeColorPc('Sasso')}"
-          style="background: url('./../../assets/image/Sasso.png');"
-          (click)="chose('Sasso')"></button>
-      </ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <button class="btn" id="Lizard" [ngStyle]="{'border': '5px solid ' + changeColorUser('Lizard')}" [style.border]="{'border': '5px solid ' + changeColorPc('Lizard')}"
-          style="background: url('./../../assets/image/Lizard.png');"
-          (click)="chose('Lizard')"></button>
-      </ion-col>
-      <ion-col>
-        <ion-row>
-          <ion-col style="text-align: center;"> {{ currentUser?.displayName }} </ion-col>
-          <ion-col style="text-align: center;"> PC </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col style="text-align: center;"> {{ userChoice }} </ion-col>
-          <ion-col style="text-align: center;"> {{ pcChoice }} </ion-col>
-        </ion-row>
-      </ion-col>
-      <ion-col style="text-align: right;">
-        <button class="btn" id="Carta" [ngStyle]="{'border': '5px solid ' + changeColorUser('Carta')}" [style.border]="{'border': '5px solid ' + changeColorPc('Carta')}"
-          style="background: url('./../../assets/image/Carta.png');"
-          (click)="chose('Carta')"></button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col></ion-col>
-    </ion-row>
-    <ion-row> 
-      <ion-col></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col style="text-align: right;">
-        <button class="btn" id="Spock" [ngStyle]="{'border': '5px solid ' + changeColorUser('Spock')}" [style.border]="{'border': '5px solid ' + changeColorPc('Spock')}"
-          style="margin-left: 3em; background: url('./../../assets/image/Spock.png'); background-size: 60px !important;"
-          (click)="chose('Spock')"></button>
-      </ion-col>
-      <ion-col></ion-col>
-      <ion-col>
-        <button class="btn" id="Forbici" [ngStyle]="{'border': '5px solid ' + changeColorUser('Forbici')}" [style.border]="{'border': '5px solid ' + changeColorPc('Forbici')}"
-          style="margin-right: 3em; background: url('./../../assets/image/Forbici.png');"
-          (click)="chose('Forbici')"></button>
-      </ion-col>
-    </ion-row>
-    <ion-row style="margin-top: 2em;">
-      <ion-col *ngIf="userWin === 0" style="text-align: center;">
-        {{resultMessage}}
-      </ion-col>
-      <ion-col *ngIf="userWin != 0" style="text-align: center;" [ngStyle]="{'color': userWin === 1 ? 'green' : (userWin === 2 ? 'red' : 'yellow')}">
-        {{resultMessage}}
-      </ion-col>
-    </ion-row>
+  <ion-grid>
     <ion-row>
       <ion-col style="text-align: center;">
-        Vittorie: {{userWins}}
+        <ion-button class="largeButtonSX" (click)="navigateTo('carta-forbice-sasso-spock-lizard')">
+          <img src="./../../assets/image/CFLSS.jpg" alt="carta forbice sasso spock lizard">
+       </ion-button>
+       Carta Forbice Sasso Spock Lizard
       </ion-col>
       <ion-col style="text-align: center;">
-        Sconfitte: {{pcWins}}
+        <ion-button class="largeButtonSX">
+          <img src="./../../assets/image/wip.png" alt="work in progress">
+       </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -50,13 +50,19 @@ const routes: Routes = [
   {
     path: 'home/:id',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
-  },  {
+  },
+  {
     path: 'game',
     loadChildren: () => import('./game/game.module').then( m => m.GamePageModule)
   },
   {
     path: 'alarm',
     loadChildren: () => import('./alarm/alarm.module').then( m => m.AlarmPageModule)
+  },
+  {
+    path: 'carta-forbice-sasso-spock-lizard',
+    loadChildren: () => import('./game/carta-forbice-sasso-spock-lizard/carta-forbice-sasso-spock-lizard.module').then(
+      m => m.CartaForbiceSassoSpockLizardPageModule)
   }
 
 ];

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
-import brands from '../../assets/json/brands.json';
+import brands from '../../assets/JSON/brands.json';
 
 @Component({
   selector: 'app-item-details',

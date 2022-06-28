@@ -24,11 +24,11 @@ export class AccessService {
     ) {
       this.plt.pause.subscribe(() => {
         this.lockApp();
-      })
+      });
       this.afAuth.onAuthStateChanged(user => {
         console.log('Changed: ', user);
         this.currentUser = user;
-      })
+      });
     }
 
   resetLogoutTimer() {
@@ -38,7 +38,7 @@ export class AccessService {
 
   decreaseTimer() {
     setTimeout(() => {
-      if (this.loogoutTimer.value == 0) {
+      if (this.loogoutTimer.value === 0) {
         this.lockApp();
       } else {
         this.loogoutTimer.next(this.loogoutTimer.value - 1);
@@ -61,7 +61,7 @@ export class AccessService {
       if (result.data && result.data.reset) {
         this.resetLogoutTimer();
       }
-    })
+    });
   }
 
   async singUp(email: string, password: string, name: string) {
@@ -73,7 +73,7 @@ export class AccessService {
     console.log('result: ', credential);
     const uid = credential.user.uid;
 
-    var user = await this.afAuth.currentUser;
+    const user = await this.afAuth.currentUser;
     user.updateProfile({
       displayName: name
     });
