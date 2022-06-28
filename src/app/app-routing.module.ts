@@ -58,11 +58,6 @@ const routes: Routes = [
   {
     path: 'alarm',
     loadChildren: () => import('./alarm/alarm.module').then( m => m.AlarmPageModule)
-  },
-  {
-    path: 'carta-forbice-sasso-spock-lizard',
-    loadChildren: () => import('./game/carta-forbice-sasso-spock-lizard/carta-forbice-sasso-spock-lizard.module').then(
-      m => m.CartaForbiceSassoSpockLizardPageModule)
   }
 
 ];
